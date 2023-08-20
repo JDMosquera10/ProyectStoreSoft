@@ -82,7 +82,7 @@ export class AppComponent {
   sendLink(): void {
     try {
       var anchor = document.createElement("a");
-      anchor.href = "https://www.youtube.com/watch?v=9jf732SMoto";
+      anchor.href = "https://github.com/JDMosquera10";
       anchor.click();
       anchor.remove();
     } catch (error) {
