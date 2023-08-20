@@ -1,0 +1,49 @@
+.cls-content-dialog {
+    width: 50vw;
+    height: 60vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .cls-row-field {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .cls-button-field {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        justify-content: end;
+    }
+
+    .cls-container-form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .cls-title-readonly {
+        font-size: 20px;
+        font-weight: 500;
+        padding-left: 10px;
+    }
+
+    .cls-contetn-readonly {
+        border: 1px solid;
+        width: 45%;
+        height: 40px;
+        border-radius: 7px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .cls-content-card-readonly{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+}

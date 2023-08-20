@@ -1,0 +1,86 @@
+<!-- <p>store works!</p> -->
+
+
+
+
+<div class="cls-class-container-store">
+
+
+    <div class="example-container mat-elevation-z8" style="width: 90%">
+        <!-- <div class="example-loading-shade"
+             *ngIf="isLoadingResults || isRateLimitReached">
+          <div class="example-rate-limit-reached" *ngIf="isRateLimitReached">
+            GitHub's API rate limit has been reached. It will be reset in one minute.
+          </div>
+        </div> -->
+
+        <div class="example-table-container">
+
+            <table mat-table [dataSource]="data" class="example-table" matSort matSortActive="created"
+                matSortDisableClear>
+                <!-- bo_cdgo Column -->
+                <ng-container matColumnDef="bo_cdgo">
+                    <th mat-header-cell *matHeaderCellDef>Código de la bodega</th>
+                    <td mat-cell *matCellDef="let row">{{row.bo_cdgo}}</td>
+                </ng-container>
+
+                <!-- bo_dscrpcion Column -->
+                <ng-container matColumnDef="bo_dscrpcion">
+                    <th mat-header-cell *matHeaderCellDef>Descripción</th>
+                    <td mat-cell *matCellDef="let row">{{row.bo_dscrpcion}}</td>
+                </ng-container>
+
+                <!-- bo_prpia Column -->
+                <ng-container matColumnDef="bo_prpia">
+                    <th mat-header-cell *matHeaderCellDef>¿Es propia?</th>
+                    <td mat-cell *matCellDef="let row">{{row.bo_prpia == 1 ? 'Si': 'No'}}</td>
+                </ng-container>
+
+                <!-- bo_plnta Column -->
+                <ng-container matColumnDef="bo_plnta">
+                    <th mat-header-cell *matHeaderCellDef disableClear>
+                        Planta
+                    </th>
+                    <td mat-cell *matCellDef="let row">{{row.bo_plnta}}</td>
+                </ng-container>
+                <!-- bo_actva Column -->
+                <ng-container matColumnDef="bo_actva">
+                    <th mat-header-cell *matHeaderCellDef disableClear>
+                        Estado
+                    </th>
+                    <td mat-cell *matCellDef="let row">{{row.bo_actva == 1 ? 'Activa': 'Inactiva'}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="bo_actions">
+                    <th style="width: 190px;" mat-header-cell *matHeaderCellDef disableClear>
+                        <button *ngIf="permiss.permiss.up_adcnar " mat-raised-button color="primary" (click)="openDialog()">Agregar bodega</button>
+                    </th>
+                    <td mat-cell *matCellDef="let row">
+                        <div class="cls-container-icon-table ">
+                            <button *ngIf="permiss.permiss.up_lstar" class="cls-width-button-icons" mat-fab color="green"
+                                aria-label="Example icon button with a home icon" (click)="openDialog(row, true)">
+                                <mat-icon class="cls-width-icons">visibility</mat-icon>
+                            </button>
+                            <button *ngIf="permiss.permiss.up_mdfcar" class="cls-width-button-icons" mat-fab color="primary"
+                                aria-label="Example icon button with a delete icon" (click)="openDialog(row)">
+                                <mat-icon class="cls-width-icons">edit</mat-icon>
+                            </button>
+                            <button *ngIf="permiss.permiss.up_brrar" class="cls-width-button-icons" mat-fab color="warn"
+                                aria-label="Example icon button with a home icon" (click)="deleteRegister(row)">
+                                <mat-icon class="cls-width-icons">delete</mat-icon>
+                            </button>
+
+                        </div>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </div>
+        <mat-paginator [length]="resultsLength" [pageSize]="30" aria-label="Select page of GitHub search results"></mat-paginator>
+    </div>
+
+
+
+</div>

@@ -1,0 +1,90 @@
+<div class="cls-content-dialog">
+
+
+    <ng-container class="cls-h-100" *ngIf="!data.onlyRead; else tempRead">
+        <ng-container *ngTemplateOutlet="formStore"></ng-container>
+    </ng-container>
+
+
+    <ng-template #formStore>
+        <div>
+            <div>
+                <h1>{{menssageModal}}</h1>
+            </div>
+
+            <div class="cls-container-form">
+                <div class="cls-row-field">
+                    <mat-form-field style="width: 100%;" appearance="outline">
+                        <mat-label>Planta</mat-label>
+                        <input [(ngModel)]="model.bo_plnta" matInput placeholder="Placeholder">
+                        <!-- <mat-hint>Hint</mat-hint> -->
+                    </mat-form-field>
+                    <mat-form-field style="width: 100%;" appearance="outline">
+                        <mat-label>¿Es propia?</mat-label>
+                        <mat-select [(ngModel)]="model.bo_prpia">
+                            <mat-option value="1">Si</mat-option>
+                            <mat-option value="0">No</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field style="width: 100%;" appearance="outline">
+                        <mat-label>Estado</mat-label>
+                        <mat-select [(ngModel)]="model.bo_actva">
+                            <mat-option value="1">Activa</mat-option>
+                            <mat-option value="0">Inactiva</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="cls-row-field">
+                    <mat-form-field style="width: 100%;" appearance="outline">
+                        <mat-label>Textarea</mat-label>
+                        <textarea [(ngModel)]="model.bo_dscrpcion" matInput></textarea>
+                    </mat-form-field>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="cls-button-field">
+            <button mat-raised-button color="warn" (click)="exitDialog()">Cancelar</button>
+            <button mat-raised-button color="primary" (click)="saveStore()">{{data.mod ? 'Editar': 'Crear'}}</button>
+        </div>
+    </ng-template>
+
+    <ng-template #tempRead>
+        <div>
+            <div>
+                <h1>Información de la bodega</h1>
+            </div>
+            <div class="cls-content-card-readonly">
+                <div class="cls-contetn-readonly">
+                    <span class="cls-title-readonly">Código de la bodega:</span>
+                    <span>{{model.bo_cdgo}}</span>
+                </div>
+                <div class="cls-contetn-readonly">
+                    <span class="cls-title-readonly">Descripción de la bodega:</span>
+                    <span>{{model.bo_dscrpcion}}</span>
+                </div>
+                <div class="cls-contetn-readonly">
+                    <span class="cls-title-readonly">¿La propiedad es propia?</span>
+                    <span>{{model.bo_prpia == 1 ? 'Si' : 'No'}}</span>
+                </div>
+                <div class="cls-contetn-readonly">
+                    <span class="cls-title-readonly">Planta de la bodega:</span>
+                    <span>{{model.bo_plnta}}</span>
+                </div>
+                <div class="cls-contetn-readonly">
+                    <span class="cls-title-readonly">Estado de la bodega</span>
+                    <span>{{model.bo_actva == 1 ? 'Activa' : 'Inactiva'}}</span>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="cls-button-field">
+            <button mat-raised-button color="warn" (click)="exitDialog()">Cancelar</button>
+        </div>
+    </ng-template>
+
+
+
+</div>

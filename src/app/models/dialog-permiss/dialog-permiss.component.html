@@ -1,0 +1,27 @@
+<div class="cls-content-dialog-permiss">
+
+    <section class="example-section">
+        <span class="example-list-section">
+            <mat-checkbox class="example-margin" [checked]="allComplete" [color]="task.color"
+                [indeterminate]="someComplete()" (change)="setAll($event.checked)">
+                {{task.name}}
+            </mat-checkbox>
+        </span>
+        <span class="example-list-section">
+            <ul>
+                <li *ngFor="let subtask of task.subtasks">
+                    <mat-checkbox [(ngModel)]="subtask.completed" [color]="subtask.color"
+                        (ngModelChange)="updateAllComplete()">
+                        {{subtask.name}}
+                    </mat-checkbox>
+                </li>
+            </ul>
+        </span>
+    </section>
+    <!--  -->
+    <div style="width: 100%; display: flex; justify-content: center;">
+        <button style="margin-right: 10px;" mat-raised-button color="warn" (click)="exitDialog()">Cancelar</button>
+        <button mat-raised-button color="primary" (click)="editPermiss()">Guardar</button>
+    </div>
+
+</div>
